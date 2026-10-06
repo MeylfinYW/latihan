@@ -40,7 +40,6 @@ class MainActivity : AppCompatActivity() {
         val tvPhone = findViewById<TextView>(R.id.tvPhone)
         tvRole = findViewById(R.id.tvRole)
 
-        // 1. Kirim Email saat diklik
         layoutEmail.setOnClickListener {
             val emailIntent = Intent(Intent.ACTION_SENDTO).apply {
                 data = Uri.parse("mailto:${tvEmail.text}")
@@ -48,7 +47,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(emailIntent)
         }
 
-        // 2. Panggilan Telepon saat diklik
         layoutPhone.setOnClickListener {
             val phoneIntent = Intent(Intent.ACTION_DIAL).apply {
                 data = Uri.parse("tel:${tvPhone.text}")
@@ -56,7 +54,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(phoneIntent)
         }
 
-        // 3. Pindah ke halaman RoleSelectionActivity saat Role diklik
         layoutRole.setOnClickListener {
             val intent = Intent(this, RoleSelectionActivity::class.java)
             roleLauncher.launch(intent)
